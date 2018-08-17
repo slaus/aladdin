@@ -1,0 +1,111 @@
+.breadcrumb-wrapper {
+    margin-top: 40px;
+}
+
+.breadcrumb {
+    @media screen and (max-width: 993px) {
+        display: none;
+    }
+    background: none;
+    li {
+        a {
+            color: $font-color-dark;
+            font-size: 1.125em;
+        }
+        &.active {
+            color: $accent-color;
+        }
+    }
+}
+
+.breadcrumb>li+li:before {
+    content: '>';
+    padding: 0 15px;
+    color: $font-color-dark;
+}
+
+.prewiev-product-card {
+    margin: 20px 0 0 -15px;
+}
+
+.product-card-header {
+    h3, 
+    .raiting {        
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    h3 {
+        margin-right: 12px;
+        @media screen and (max-width: 992px) {
+            margin-top: 30px;
+        }
+    }
+    .raiting {
+        font-size: 0;
+        // margin-left: 12px;
+        // @media screen and (min-width: 993px) and (max-width: 1200px) {
+        //     margin-left: 0;
+        // }
+    }
+}
+
+.product-card-info {
+    .product-card-coding-info,
+    .country-producer,
+    .product-card-price,
+    .btn-to-basket,
+    .guarantee {
+        margin-bottom: 25px;
+    }   
+    .guarantee {
+        p {
+            display: inline-block;
+            padding-right: 30px;
+        }
+    } 
+    .btn-to-basket {
+        display: block;
+        width: 189px;
+        border-radius: 5px;
+        @media screen and (max-width: 992px) {
+            margin-right: auto;
+            margin-left: auto;
+        } 
+    }
+    .product-card-price {
+        span {
+            color: rgb(48, 124, 227);
+            font-size: 2.25em;
+        }
+    } 
+    .product-card-description {
+        h6 {
+            color: rgb(181, 178, 178);
+            font-size: 1.125em;
+            font-variant: small-caps;            
+        }
+        p {
+            margin-bottom: 25px;
+        }
+    }
+}
+#description-item,
+#comment-item,
+#delivery-payment-item
+ {
+    p {
+        margin-bottom: 25px;
+    }
+}
+.random-items-gallery {
+    margin-bottom: 100px;
+    h4 {
+        color: rgb(48, 124, 227);
+        font-size: 2.35em;
+        font-variant: small-caps;
+        margin: 50px 0 25px;
+        @media screen and (max-width: 992px) {
+           text-align: center;
+        } 
+    }
+}

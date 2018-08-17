@@ -1,0 +1,55 @@
+[class^="bg-iconmonstr"] {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1px dashed #fff;
+    border-radius: 4px;
+}
+
+.btn-common {
+    font-size: 1.125em;
+    text-transform: uppercase;
+    color: $font-color-light;
+    padding: 10px 30px;
+    background-image: $accent-gradient;
+    border: 3px solid $accent-color;
+    border-radius: 10px;
+    box-shadow: 2.5px 4.3px 10px rgba(0, 0, 0, 0.24);
+    transition: .5s;
+    &:hover {
+        color: $font-color-dark;
+        background-image: $second-gradient;
+        //border: 3px solid $second-color;
+        cursor: pointer;
+        transition: .5s;
+    }
+}
+input[type="search"] {
+    border: none;
+    padding: 15px;
+    ::placeholder {
+        font-size: 1.125em;
+        color: rgb(199, 197, 197);
+    }
+}
+
+.navbar-socials {
+    padding: 0;
+    @media screen and (max-width: 768px) {
+        float: left;
+        margin-right: 0;
+    }
+    li {
+        display: inline-block;
+        margin-right: 8px;
+    }
+}
+
+.exit-menu {
+    padding: 6px;
+    top: -5px;
+    &.icon-arrow-right:before {
+        margin: 0;
+    }
+}
+

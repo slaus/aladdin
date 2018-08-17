@@ -1,0 +1,64 @@
+.bg-comments {
+  width: 36px;
+  height: 30px;
+  background: url("css_sprites.png") -292px -10px; }
+
+.bg-cool {
+  width: 23px;
+  height: 26px;
+  background: url("css_sprites.png") -10px -10px; }
+
+.bg-delivery {
+  width: 44px;
+  height: 35px;
+  background: url("css_sprites.png") -584px -10px; }
+
+.bg-envilop {
+  width: 50px;
+  height: 34px;
+  background: url("css_sprites.png") -648px -10px; }
+
+.bg-lamp {
+  width: 37px;
+  height: 36px;
+  background: url("css_sprites.png") -404px -10px; }
+
+.bg-money {
+  width: 29px;
+  height: 27px;
+  background: url("css_sprites.png") -193px -10px; }
+
+.bg-payment {
+  width: 41px;
+  height: 39px;
+  background: url("css_sprites.png") -461px -10px; }
+
+.bg-percent {
+  width: 28px;
+  height: 27px;
+  background: url("css_sprites.png") -145px -10px; }
+
+.bg-phone_1 {
+  width: 24px;
+  height: 25px;
+  background: url("css_sprites.png") -53px -10px; }
+
+.bg-phone_2 {
+  width: 36px;
+  height: 38px;
+  background: url("css_sprites.png") -348px -10px; }
+
+.bg-shopping_basket {
+  width: 42px;
+  height: 38px;
+  background: url("css_sprites.png") -522px -10px; }
+
+.bg-shopping_cart {
+  width: 30px;
+  height: 31px;
+  background: url("css_sprites.png") -242px -10px; }
+
+.bg-star {
+  width: 28px;
+  height: 25px;
+  background: url("css_sprites.png") -97px -10px; }
