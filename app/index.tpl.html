@@ -1,0 +1,571 @@
+{* главный файл-каркас шаблона магазина *}
+<!DOCTYPE html>
+<html lang="ru">
+{* подключение файла заголовков *}
+{include file="head.tpl.html"}
+
+{* сообщение о профилактике *}
+{if $smarty.const.CONF_SHOP_BILD eq 1 and $isadmin ne "yes"}
+<body style="background: none">
+<div id="wrap" style="background: none">
+    <div class="text-center build"><img src="data/{$smarty.const.TPL}/img/bild.png" alt=""><br>
+        <h3><b>{$smarty.const.STRING_BILD}</b></h3>
+        <small>{$smarty.const.STRING_BILD_DES}
+            <br>E-mail:
+            <a href="mailto:{$smarty.const.CONF_GENERAL_EMAIL}">{$smarty.const.CONF_GENERAL_EMAIL}</a>
+        </small>
+    </div>
+</div>
+{else}
+<body>
+<div class="wrapper">
+
+    <!-- Push Wrapper -->
+    <div class="mp-pusher" id="mp-pusher">
+
+        <!-- mp-menu -->
+        <nav id="mp-menu" class="mp-menu">
+            <div class="mp-level">
+                <h2 class="icon icon-world">Категории товаров</h2>
+                <!--ul>
+                    <li class="icon icon-arrow-left">
+                        <a class="icon icon-display" href="#">Одежда для новорожденных</a>
+                        <div class="mp-level">
+                            <h2 class="icon icon-display">Одежда для новорожденных</h2>
+                            <a class="mp-back" href="#">назад</a>
+                            <ul>
+                                <li class="icon icon-arrow-left">
+                                    <a class="icon icon-phone" href="#">Mobile Phones</a>
+                                    <div class="mp-level">
+                                        <h2>Mobile Phones</h2>
+                                        <a class="mp-back" href="#">back</a>
+                                        <ul>
+                                            <li><a href="#">Super Smart Phone</a></li>
+                                            <li><a href="#">Thin Magic Mobile</a></li>
+                                            <li><a href="#">Performance Crusher</a></li>
+                                            <li><a href="#">Futuristic Experience</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="icon icon-arrow-left">
+                                    <a class="icon icon-tv" href="#">Televisions</a>
+                                    <div class="mp-level">
+                                        <h2>Televisions</h2>
+                                        <a class="mp-back" href="#">back</a>
+                                        <ul>
+                                            <li><a href="#">Flat Superscreen</a></li>
+                                            <li><a href="#">Gigantic LED</a></li>
+                                            <li><a href="#">Power Eater</a></li>
+                                            <li><a href="#">3D Experience</a></li>
+                                            <li><a href="#">Classic Comfort</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="icon icon-arrow-left">
+                                    <a class="icon icon-camera" href="#">Cameras</a>
+                                    <div class="mp-level">
+                                        <h2>Cameras</h2>
+                                        <a class="mp-back" href="#">back</a>
+                                        <ul>
+                                            <li><a href="#">Smart Shot</a></li>
+                                            <li><a href="#">Power Shooter</a></li>
+                                            <li><a href="#">Easy Photo Maker</a></li>
+                                            <li><a href="#">Super Pixel</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="icon icon-photo" href="#">Collections</a></li>
+                    <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                </ul-->
+
+                {*
+                {if $big_categories_tree && $big_categories_tree_count>0}
+                <ul>
+                    {section name=h loop=$big_categories_tree}
+                    {if $big_categories_tree[h].parent == 1}
+
+                    <li>
+                        <a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}category_{$big_categories_tree[h].categoryID}.html{else}index.php?categoryID={$big_categories_tree[h].categoryID}{/if}" {if $categoryID == $big_categories_tree[h].categoryID}class="bf"{/if}>{$big_categories_tree[h].name}</a>
+
+                        {if $big_categories_tree[h].subcount > 0}
+                        <ul>
+                            {section name=h1 loop=$big_categories_tree}
+                            {if $big_categories_tree[h1].parent == $big_categories_tree[h].categoryID}
+
+                            <li>
+                                {if $big_categories_tree[h1].picture}<div class="cat_m_img"><a height="100px" href="{if $smarty.const.CONF_MOD_REWRITE eq 1}category_{$big_categories_tree[h1].categoryID}.html{else}index.php?categoryID={$big_categories_tree[h1].categoryID}{/if}" {if $categoryID == $big_categories_tree[h1].categoryID}class="bf"{/if}><img src="data/category/{$big_categories_tree[h1].picture}" alt="{$big_categories_tree[h1].name}" ></a></div>{/if}
+
+                                <a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}category_{$big_categories_tree[h1].categoryID}.html{else}index.php?categoryID={$big_categories_tree[h1].categoryID}{/if}" {if $categoryID == $big_categories_tree[h1].categoryID}class="bf"{/if}>{$big_categories_tree[h1].name}</a>
+                                {if $big_categories_tree[h1].subcount > 0}
+                                <ul>
+                                    {section name=h2 loop=$big_categories_tree}
+                                    {if $big_categories_tree[h2].parent == $big_categories_tree[h1].categoryID}
+
+                                    <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}category_{$big_categories_tree[h2].categoryID}.html{else}index.php?categoryID={$big_categories_tree[h2].categoryID}{/if}" {if $categoryID == $big_categories_tree[h2].categoryID}class="bf"{/if}>{$big_categories_tree[h2].name}</a>
+                                    </li>
+                                    {/if}
+                                    {/section}
+                                </ul>
+                                {/if}
+
+                            </li>
+                            {/if}
+                            {/section}
+                        </ul>
+                        {/if}
+
+                    </li>
+
+                    {/if}
+                    {/section}
+                    {else}
+                    <div align="center">{$smarty.const.STRING_NO_CATEGORIES}</div>
+                    {/if}
+                    *}
+
+                    {if $big_categories_tree && $big_categories_tree_count > 0}
+                    {assign var="oldnumber" value=0}
+                    <ul>
+                        {section name=h loop=$big_categories_tree}
+                        {if $big_categories_tree[h].categoryID != 1}
+                        {if $big_categories_tree[h].level > $oldnumber}
+                        <div class="mp-level">
+                            <h2 class="icon icon-{$big_categories_tree[h].parent}">{*$big_categories_tree[h].parent*}</h2>
+                            <a class="mp-back" href="#">Назад</a>
+                            <ul>
+                        {/if}
+                        {if $big_categories_tree[h].level < $oldnumber}
+                        {section name=w loop=$oldnumber-$big_categories_tree[h].level}
+                            </ul>
+                        </div>
+
+                        {/section}
+                        {/if}
+                        {if $big_categories_tree[h].subcount > 0}
+                        {if $categoryID != $big_categories_tree[h].categoryID}
+                        <li class="icon icon-arrow-left">
+                            {else}
+                        <li class="icon icon-arrow-left">
+                            {/if}
+                            {else}
+                        <li>
+                            {/if}
+                            <a class="icon icon-{$big_categories_tree[h].categoryID}" href="{if $smarty.const.CONF_MOD_REWRITE eq 1}category_{$big_categories_tree[h].categoryID}.html{else}index.php?categoryID={$big_categories_tree[h].categoryID}{/if}">
+                                {$big_categories_tree[h].name}
+                            </a>
+                            {if $categoryID == $big_categories_tree[h].categoryID}{/if}
+                            {assign var="oldnumber" value=$big_categories_tree[h].level}
+                            {assign var="oldcat" value=$big_categories_tree[h].categoryID} {/if}
+                            {/section}
+                    </ul>
+                    {/if}
+                    <span class="icon icon-arrow-right exit-menu"></span>
+
+            </div>
+        </nav>
+        <!-- /mp-menu -->
+
+        {* вывод сообщений об ошибках *}
+        {if $exploerrors ne ""}
+        <div class="alert alert-danger"> {$exploerrors} </div>
+        {/if}
+        {if $smarty.const.CONF_DISPLAY_INFO eq 1 and $isadmin eq "yes"}
+        <div class="alert alert-info"> {$smarty.const.STRING_EXE_DATA}: <span id="tgenexe" style="font-weight: bold">0.000</span> {$smarty.const.TIME_SEK};&nbsp;&nbsp;{$smarty.const.STRING_PREEXE_DATA}: <span id="tgencompile" style="font-weight: bold">0.000</span> {$smarty.const.TIME_SEK};&nbsp;&nbsp;{$smarty.const.BD_DO_TIME}: <span id="tgendb" style="font-weight: bold">0.000</span> {$smarty.const.TIME_SEK};&nbsp;&nbsp;{$smarty.const.STRING_ALL_EXETIME}: <span id="tgenall" style="font-weight: bold">0.000</span> {$smarty.const.TIME_SEK};&nbsp;&nbsp;{$smarty.const.STRING_DO_COUNT}: <span id="tgensql" style="font-weight: bold">0</span> </div>
+        <script>doLStat('do=stat');</script>
+        {/if}
+        {if $smarty.const.CONF_SMARTY_FORCE_COMPILE eq 1 and $isadmin eq "yes"}
+        <div class="alert alert-danger"> {$smarty.const.LOWSPEED_WARNING} </div>
+        {/if}
+
+        <header class="header">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-top">
+                        <ul class="float-right entry">
+                            <li><a href="#!" data-toggle="modal" data-target="#consult">Вход</a></li>
+                        </ul>
+                        <ul class="float-right navbar-socials">
+                            <li><a href="#!"><i class="bg-iconmonstr_facebook"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_vk"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_twitter"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_google"></i></a></li>
+                        </ul>
+                        <div class="logo float-right">
+                            <a href="{$smarty.const.CONF_FULL_SHOP_URL}"><img src="data/{$smarty.const.TPL}/img/aladdin.png" alt="Aladdin"></a>
+                        </div>
+                    </div>
+                    <!--/.nav-collapse .navbar-top-->
+                    <div class="navbar-bottom">
+                        <ul class="float-right">
+                            <li><a href="{1|@fu_make_url_pages}">О магазине</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}news.html{else}index.php?news=yes{/if}">Новости</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}price.html{else}index.php?show_price=yes{/if}">Прайс</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}feedback.html{else}index.php?feedback=yes{/if}">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <!--/.navbar-bottom-->
+                </div>
+            </nav>
+            <div class="row services-block">
+                <div class="container">
+                    <div class="col-md-2 col-sm-3 col-xs-3 service">
+                        <a href="{2|@fu_make_url_pages}"><span class="service-icon bg-shopping_basket"></span><span class="service-name">Как купить</span></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-3 service">
+                        <a href="{3|@fu_make_url_pages}"><span class="service-icon bg-payment"></span><span class="service-name">Оплата</span></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-3 service">
+                        <a href="{4|@fu_make_url_pages}"><span class="service-icon bg-delivery"></span><span class="service-name">Доставка</span></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-3 service">
+                        <a href="{20|@fu_make_url_pages}"><span class="service-icon bg-comments"></span><span class="service-name">Отзывы</span></a>
+                    </div>
+                    <div class="order-call">
+                        <div class="phone-num">
+                            <span class="bg-phone_1 phone-icon"></span>
+                            <span>7 915 039 9295</span>
+                        </div>
+                        <button type="submit" class="btn-common" onclick="window.location.href='tel:+79150399295'">заказать звонок</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="row menu-catalogue">
+                <div class="container">
+
+                    <!-- mp-menu -->
+                    <div class="push-menu">
+                        <a href="#" id="trigger" class="menu-trigger">каталог товаров</a>
+                    </div>
+                    <div class="search">
+                        <form role="form" action="index.php" method="get" name="formpoisk" id="formpoisk">
+                            <input type="text" name="searchstring" maxlength="128" placeholder="{$smarty.const.FIND_BUTTON_PL}">
+                            <button type="submit"></button>
+                            {section name=sert loop=$searchstrings}
+                            <input type="hidden" name='search_string_{$smarty.section.sert.index}' value='{$searchstrings[sert]}'>
+                            {/section}
+                        </form>
+                    </div>
+                    <div class="basket-info">
+                        <div class="float-right">
+                            <div class="basket-info-cab">
+                                <a {if $smarty.const.CONF_OPEN_SHOPPING_CART_IN_NEW_WINDOW eq 1}href="#" onclick="open_window('index.php?do=cart','{$smarty.const.CART_TITLE}'); return false" {else}href="{if $smarty.const.CONF_MOD_REWRITE eq 1}cart.html{else}index.php?shopping_cart=yes{/if}" {/if}>Корзина
+                                <span class="bg-shopping_cart"></span>
+                                </a>
+                            </div>
+                            <div class="basket-info-sum">
+                                <span class="bg-money"></span>
+                                <span class="total-sum">500 руб.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /mp-menu -->
+
+                </div>
+            </div>
+            <div class="container">
+                {* верхние блоки *}
+                <div class="slider">
+                    {include file="blocks.tpl.html" binfo=$top_blocks}
+                </div>
+            </div>
+            <div class="container catalogue"> {* центральная часть *}
+                {assign var="foov" value="6"}
+                {if $countlb < 1}{assign var="foov" value="`$foov+3`" }{/if}
+                {if $countrb < 1}{assign var="foov" value="`$foov+3`" }{/if}
+
+                {if $main_content_template eq "pricelist.tpl.html" or $main_content_template eq "comparison_products.tpl.html"}
+                <div class="row">
+                    <div class="col-xs-12"> {include file="$main_content_template"} </div>
+                </div>
+                {else}
+                <div class="row"> {* левая колонка (если есть блоки) *}
+                    {if $countlb > 0}
+                    <div class="col-md-3 col-lg-3"> {include file="blocks.tpl.html" binfo=$left_blocks} </div>
+                    {/if}
+                    <div class="col-md-{$foov} col-lg-{$foov}{if $countrb > 0} bright{/if}{if $countlb > 0} bleft{/if}"> {* вывод центральной страницы *}
+                        {include file="$main_content_template"}
+                        {* нижние блоки *}
+                        {include file="blocks.tpl.html" binfo=$bottom_blocks} </div>
+                    {* правая колонка (если есть блоки) *}
+                    {if $countrb > 0}
+                    <div class="col-md-3 col-lg-3"> {include file="blocks.tpl.html" binfo=$right_blocks} </div>
+                    {/if} </div>
+                {/if}
+
+            </div>
+            <div class="row tabs-targets">
+
+                <div class="subscribe-email">
+                    <div class="container">
+                        <div class="col-md-6 col-sm-6">
+                            <p>Подпишитесь на рассылку и получайте информацию о скидках и новостях на почту</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="email">
+                                <form action="index.php" name="subscription_form" method="post" id="subscription_form" role="form">
+                                    <input type="email" name="email" id="email" placeholder="Введите Ваш e-mail">
+                                    <a href="#" type="submit" onclick="validate(this); return false" class="bg-envilop"></a>
+                                    <input type="hidden" name="subscribe" value="yes">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row customer-info text-justify">
+                        <p>В нашем магазине игрушек мы постарались представить достаточно большой выбор для самых маленьких. Здесь вы найдете игрушки, кроватки и коляски, большое количество
+                            игрушек для развлечения малыша во время купания, а так же развивающие коврики, которые еще и защитят вашего малыша от прохладного пола в зимнее время. Все игрушки сделаны
+                            из экологически чистых материалов, что позволит родителям не волноваться за своих малышей, которые любят все испробовать на вкус. Все товары для новорожденных проходят
+                            тщательный ежемесячный мониторинг с нашей стороны. Предлагаемая продукция создается из
+                            безопасных натуральных компонентов и рекомендована аллергологами и педиатрами страны. Одежда шьется из 100% хлопка, имеет мягкие плоские швы и не доставляет никакого
+                            дискомфорта. Мебель выполнена из экологически чистой древесины. Интернет-магазин устанавливает доступные цены на весь ассортимент продукции. Покупатели столицы могут
+                            воспользоваться курьерской доставкой, заказав ее непосредственно с сайта. Оплатить покупку можно на сайте интернет-магазина сразу после
+                            оформления заказа при помощи банковской карты, по факту получения наличными или банковской картой, а также наличными при самовывозе в пункте выдачи интернет-магазина.
+                            Мы постарались разместить на полках нашего магазина весь спектр развлечений для детей различного возраста, а так же игр для всей семьи. У нас вы найдете и куклы, и машинки,
+                            мягкие игрушки, музыкальные, настольные, а также огромный список товаров для активного отдыха и пляжа. А еще мы обязательно расскажем, как правильно обустроить детскую,
+                            сделать ее не только интересной, где можно хорошенько порезвиться, но и при правильном подборе развивающих игр, можно получить новые знания и навыки в различных сферах.
+                            Если после выбора определенного товара у вас все же остаются вопросы, то вы всегда можете связаться с нами. Для этого вам нужно нажать на кнопочку «Обратная связь»,
+                            чтобы получить ответы на все интересующие вас вопросы. Хотя, скорее всего, это и не понадобится, ведь мы постарались сделать навигационную систему нашего ресурса очень удобной.
+                            И еще один немаловажный момент, это получение своего товара. Здесь начинает свою работу наша служба доставки, которая работает без перебоев, и никогда не подводит наших клиентов.
+                            С нашим Интернет магазином детских игрушек вы можете экономить свои деньги, а время и силы, которые вы потратили бы на походы по магазинам, изнурительные поиски желаемой игрушки,
+                            сможете проводить со своим малышом, даря ему радость общения и познавания этого мира.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-phone-num">
+                <div class="container">
+                    <p class="footer-phone">
+                        <span class="bg-phone_2 footer-phone-icon"></span><a href="tel:+79150399295"><b>+7 915 039 9295</b></a></p>
+                </div>
+            </div>
+            <div class="footer-menu">
+                <div class="container">
+                    <div class="col-md-2 col-sm-6 footer-menu-col">
+                        <p>Разделы Сайта</p>
+                        <ul>
+                            <li><a href="{1|@fu_make_url_pages}">О магазине</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}news.html{else}index.php?news=yes{/if}">Новости</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}price.html{else}index.php?show_price=yes{/if}">Прайс</a></li>
+                            <li><a href="{if $smarty.const.CONF_MOD_REWRITE eq 1}feedback.html{else}index.php?feedback=yes{/if}">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-6 footer-menu-col">
+                        <p>Информация</p>
+                        <ul>
+                            <li><a href="{2|@fu_make_url_pages}">Как купить</a></li>
+                            <li><a href="{3|@fu_make_url_pages}">Оплата</a></li>
+                            <li><a href="{4|@fu_make_url_pages}">Доставка</a></li>
+                            <li><a href="{20|@fu_make_url_pages}">Отзывы</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-6 footer-menu-col">
+                        <p>Аккаунт</p>
+                        <ul>
+                            <li><a href="{if $smarty.const.CONF_OPEN_SHOPPING_CART_IN_NEW_WINDOW eq 1}javascript:open_window('index.php?do=cart',500,300);{else}{if $smarty.const.CONF_MOD_REWRITE eq 1}cart.html{else}index.php?shopping_cart=yes{/if}{/if}">Корзина</a></li>
+                            {if $isadmin eq "yes"}
+                            <li><a href="{$smarty.const.ADMIN_FILE}">{$smarty.const.ADMINISTRATE_LINK}</a></li>
+                            <li><a href="index.php?user_details=yes">{$smarty.const.MY_ACCOUNT_LINK}</a></li>
+                            <li><a href="index.php?contact_info=yes">{$smarty.const.STRING_CONTACT_INFORMATION_DOWN_CASE}</a></li>
+                            <li><a href="index.php?logout=yes">{$smarty.const.LOGOUT_LINK}</a></li>
+                            {elseif $log ne ""}
+                            <li><a href="index.php?user_details=yes">{$smarty.const.MY_ACCOUNT_LINK}</a></li>
+                            <li><a href="index.php?contact_info=yes">{$smarty.const.STRING_CONTACT_INFORMATION_DOWN_CASE}</a></li>
+                            <li><a href="index.php?address_book=yes">{$smarty.const.STRING_ADDRESS_BOOK}</a></li>
+                            <li><a href="index.php?order_history=yes">{$smarty.const.STRING_ORDER_HISTORY}</a></li>
+                            <li><a href="index.php?visit_history=yes">{$smarty.const.STRING_VISIT_HISTORY}</a></li>
+                            <li><a href="index.php?logout=yes">{$smarty.const.LOGOUT_LINK}</a></li>
+                            {/if}
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-6 footer-menu-col">
+                        <p>Наши Контакты </p>
+                        <ul>
+                            <li>г. Москва</li>
+                            <li><a href="tel:+79150399295">+7 (915) 039 9295</a></li>
+                            <li><a href="email:info@aladdin.msk.ru">info@aladdin.msk.ru</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-menu-col">
+                        <ul class="float-right navbar-socials">
+                            <li><a href="#!"><i class="bg-iconmonstr_facebook"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_vk"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_twitter"></i></a></li>
+                            <li><a href="#!"><i class="bg-iconmonstr_google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-line">
+                <p class="text-center copyright">
+                    <small>
+                        <a href="{8|@fu_make_url_pages}" class="red">Пользовательское соглашение</a> |
+                        <a href="{9|@fu_make_url_pages}" class="red">Политика конфиденциальности</a>
+                    </small>
+                </p>
+                <p class="text-center red copyright">{php}echo date('Y');{/php} &copy; Разработка интернет-магазина <a href="https://xwork.site" target="_blank" class="red">xWork.site</a>.</p>
+            </div>
+        </footer>
+
+        <a id="back-to-top" class="back-to-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="consult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        {if $log ne ""}Выход{else}Вход{/if}
+                    </h4>
+                </div>
+                {* шаблон блока авторизации *}
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 login-box">
+                            {if $log ne ""}
+                            <div class="row" style="line-height: 22px">
+                                {if $isadmin eq "yes"}
+                                <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;
+                                <a href="{$smarty.const.ADMIN_FILE}">{$smarty.const.ADMINISTRATE_LINK}</a>
+                                <br> {/if}
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;
+                                <a href='index.php?contact_info=yes'>{$smarty.const.STRING_CONTACT_INFORMATION_DOWN_CASE}</a>
+                                <br>
+                                <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;
+                                <a href='index.php?address_book=yes'>{$smarty.const.STRING_ADDRESS_BOOK}</a>
+                                <br>
+                                <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;
+                                <a href='index.php?order_history=yes'>{$smarty.const.STRING_ORDER_HISTORY}</a>
+                                <br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;
+                                <a href='index.php?visit_history=yes'>{$smarty.const.STRING_VISIT_HISTORY}</a>
+                                {if $smarty.const.CONF_AFFILIATE_PROGRAM_ENABLED}
+                                <br>
+                                <span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;
+                                <a href='index.php?affiliate=yes&amp;sub=balance'>{$smarty.const.STRING_AFFILIATE_PROGRAM}</a>
+                                {/if}
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <button onclick="window.location.href='index.php?logout=yes'" class="btn-common btn-to-catalogue">{$smarty.const.LOGOUT_LINK}</button>
+                                </div>
+                            </div>
+                            {else}
+                            <form action="index.php" method="post" id="userform" role="form">
+                                <div class="row">
+                                    <div class="input-group m-b-10">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                                        <input type="text" class="form-control" name="user_login" id="user_login" placeholder="{$smarty.const.CUSTOMER_LOGIN}" required="">
+                                    </div>
+                                    <div class="input-group m-b-10">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+                                        <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="{$smarty.const.CUSTOMER_PASSWORD}" required="">
+                                    </div>
+                                    {if $smarty.const.CONF_USER_SYSTEM > 0}
+                                    <div class="text-center">
+                                        <a href="index.php?logging=yes">Забыли свой пароль?</a>
+                                    </div>
+                                    <div class="text-center">У вас нет аккаунта?
+                                        <a href="index.php?register=yes">{$smarty.const.REGISTER_LINK}</a>
+                                    </div>
+                                    {/if}
+                                    <input type="hidden" name="enter" value="1">
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <button type="submit" class="btn-common btn-to-catalogue">{$smarty.const.BUTTON_ENTER_AUTH}</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/if}
+<script src="data/{$smarty.const.TPL}/js/jquery-1.12.4.min.js"></script>
+<script src="data/{$smarty.const.TPL}/js/bootstrap.min.js"></script>
+<script src="data/{$smarty.const.TPL}/js/jquery.jcarousel.min.js"></script>
+<script src="data/{$smarty.const.TPL}/js/classie.js"></script>
+<script src="data/{$smarty.const.TPL}/js/mlpushmenu.js"></script>
+
+<script>
+    {literal}
+    $(document).ready(function() {
+        new mlPushMenu(document.getElementById('mp-menu'), document.getElementById('trigger'));
+        $('.carousel').carousel({
+            interval: 5000
+        });
+        $('[data-toggle=tooltip]').tooltip();
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, '600');
+        });
+    });
+    function adjustModalMaxHeightAndPosition(){
+        $('.modal').each(function(){
+            if($(this).hasClass('in') == false){
+                $(this).show();
+            };
+            var contentHeight = $(window).height() - 60;
+            var headerHeight = $(this).find('.modal-header').outerHeight() || 2;
+            var footerHeight = $(this).find('.modal-footer').outerHeight() || 2;
+
+            $(this).find('.modal-content').css({
+                'max-height': function () {
+                    return contentHeight;
+                }
+            });
+
+            $(this).find('.modal-body').css({
+                'max-height': function () {
+                    return contentHeight - (headerHeight + footerHeight);
+                }
+            });
+
+            $(this).find('.modal-dialog').addClass('modal-dialog-center').css({
+                'margin-top': function () {
+                    return -($(this).outerHeight() / 2);
+                },
+                'margin-left': function () {
+                    return -($(this).outerWidth() / 2);
+                }
+            });
+            if($(this).hasClass('in') == false){
+                $(this).hide();
+            };
+        });
+    };
+    if ($(window).height() >= 320){
+        $(window).resize(adjustModalMaxHeightAndPosition).trigger("resize");
+    }
+    {/literal}
+</script>
+<script src="data/{$smarty.const.TPL}/js/jquery.matchHeight-min.js"></script>
+<script src="data/{$smarty.const.TPL}/js/script.js"></script>
+</body>
+</html>

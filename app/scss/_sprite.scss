@@ -1,110 +1,140 @@
 .bg-comments {
   width: 36px;
   height: 30px;
-  background: url('../images/css_sprites.png') -473px -10px;
+  background: url('../img/css_sprites.png') -473px -10px;
 }
 
 .bg-cool {
   width: 23px;
   height: 26px;
-  background: url('../images/css_sprites.png') -95px -10px;
+  background: url('../img/css_sprites.png') -95px -10px;
 }
 
 .bg-cool_dark {
   width: 23px;
   height: 26px;
-  background: url('../images/css_sprites.png') -52px -10px;
+  background: url('../img/css_sprites.png') -52px -10px;
 }
 
 .bg-delivery {
   width: 44px;
   height: 35px;
-  background: url('../images/css_sprites.png') -822px -10px;
+  background: url('../img/css_sprites.png') -822px -10px;
 }
 
 .bg-envilop {
   width: 50px;
   height: 44px;
-  background: url('../images/css_sprites.png') -886px -6px $font-color-light;
+  background: url('../img/css_sprites.png') -886px -6px $font-color-light;
 }
 
 .bg-lamp {
   width: 37px;
   height: 36px;
-  background: url('../images/css_sprites.png') -642px -10px;
+  background: url('../img/css_sprites.png') -642px -10px;
 }
 
 .bg-lamp_dark {
   width: 37px;
   height: 36px;
-  background: url('../images/css_sprites.png') -585px -10px;
+  background: url('../img/css_sprites.png') -585px -10px;
   // display: none;
 }
 
 .bg-money {
   width: 29px;
   height: 27px;
-  background: url('../images/css_sprites.png') -374px -10px;
+  background: url('../img/css_sprites.png') -374px -10px;
 }
 
 .bg-payment {
   width: 41px;
   height: 39px;
-  background: url('../images/css_sprites.png') -699px -10px;
+  background: url('../img/css_sprites.png') -699px -10px;
 }
 
 .bg-percent {
   width: 28px;
   height: 27px;
-  background: url('../images/css_sprites.png') -326px -10px;
+  background: url('../img/css_sprites.png') -326px -10px;
 }
 
 .bg-percent_dark {
   width: 28px;
   height: 27px;
-  background: url('../images/css_sprites.png') -278px -10px;
+  background: url('../img/css_sprites.png') -278px -10px;
 }
 
 .bg-phone_1 {
   width: 24px;
   height: 25px;
-  background: url('../images/css_sprites.png') -138px -10px;
+  background: url('../img/css_sprites.png') -138px -10px;
 }
 
 .bg-phone_2 {
   width: 36px;
   height: 38px;
-  background: url('../images/css_sprites.png')  -529px -10px;
+  background: url('../img/css_sprites.png')  -529px -10px;
 }
 
 .bg-search {
   width: 22px;
   height: 21px;
-  background: url('../images/css_sprites.png') -10px -10px;
+  background: url('../img/css_sprites.png') -10px -10px;
 }
 
 .bg-shopping_basket {
   width: 42px;
   height: 38px;
-  background: url('../images/css_sprites.png') -760px -10px;
+  background: url('../img/css_sprites.png') -760px -10px;
 }
 
 .bg-shopping_cart {
   width: 30px;
   height: 31px;
-  background: url('../images/css_sprites.png') -423px -10px;
+  background: url('../img/css_sprites.png') -423px -10px;
 }
 
 .bg-star {
   width: 28px;
   height: 25px;
-  background: url('../images/css_sprites.png') -230px -10px;
+  background: url('../img/css_sprites.png') -230px -10px;
 }
 
 .bg-star_dark {
   width: 28px;
   height: 25px;
-  background: url('../images/css_sprites.png') -182px -10px;
+  background: url('../img/css_sprites.png') -182px -10px;
+}
+
+.list-tabs .active .bg-description_dark {
+  background: url('../img/css_sprites.png') -1019px -10px;
+}
+
+.bg-description_dark {
+  width: 38px;
+  height: 25px;
+  background: url(../img/css_sprites.png) -962px -10px;
+}
+
+.list-tabs .active .bg-comment_dark {
+  background: url('../img/css_sprites.png') -1148px -10px;
+}
+
+.bg-comment_dark {
+  width: 38px;
+  height: 25px;
+  background: url(../img/css_sprites.png) -1091px -10px;
+}
+
+.list-tabs .active .bg-payment_dark {
+  background: url(../img/css_sprites.png) -1268px -10px;
+}
+
+.bg-payment_dark {
+  width: 38px;
+  height: 25px;
+  background: url(../img/css_sprites.png) -1211px -10px;
 }
 
 // socials icons
@@ -112,10 +142,10 @@
 .bg-iconmonstr_facebook {
   width: 100%;
   height: 100%;
-  background: url('../images/css_socials_sprites.png') -65px -13px, #3177df;
+  background: url('../img/css_socials_sprites.png') -65px -13px, #3177df;
   transition: .3s;
   &:hover {
-    background: url('../images/css_socials_sprites.png') -12px -13px,
+    background: url('../img/css_socials_sprites.png') -12px -13px,
     #fff;
     transition: .3s;
   }
@@ -124,10 +154,10 @@
 .bg-iconmonstr_vk {
   width: 100%;
   height: 100%;
-  background: url('../images/css_socials_sprites.png') -391px -13px, #3177df;
+  background: url('../img/css_socials_sprites.png') -391px -13px, #3177df;
   transition: .3s;
   &:hover {
-    background: url('../images/css_socials_sprites.png') -338px -13px,
+    background: url('../img/css_socials_sprites.png') -338px -13px,
     #fff;
     transition: .3s;
   }
@@ -136,10 +166,10 @@
 .bg-iconmonstr_twitter {
   width: 100%;
   height: 100%;
-  background: url('../images/css_socials_sprites.png') -283px -13px, #3177df;
+  background: url('../img/css_socials_sprites.png') -283px -13px, #3177df;
   transition: .3s;
   &:hover {
-    background: url('../images/css_socials_sprites.png') -229px -13px,
+    background: url('../img/css_socials_sprites.png') -229px -13px,
     #fff;
     transition: .3s;
   }
@@ -148,10 +178,10 @@
 .bg-iconmonstr_google {
   width: 100%;
   height: 100%;
-  background: url('../images/css_socials_sprites.png') -175px -13px, #3177df;
+  background: url('../img/css_socials_sprites.png') -175px -13px, #3177df;
   transition: .3s;
   &:hover {
-    background: url('../images/css_socials_sprites.png') -122px -13px,
+    background: url('../img/css_socials_sprites.png') -122px -13px,
     #fff;
     transition: .3s;
   }
@@ -161,7 +191,7 @@
   display: inline-block;
   width: 24px;
   height: 21px;
-  background: url('../images/raiting-star.png');
+  background: url('../img/raiting-star.png');
 }
 
 

@@ -4,15 +4,15 @@
 
 .header {
     .navbar {
-        background: url(../images/logo.png) 202px 40px no-repeat, url(../images/header-bg.jpg) 0 0 no-repeat;
+        background: url(../img/logo.png) 202px 40px no-repeat, url(../img/header-bg.jpg) 0 0 no-repeat;
         background-size: auto, cover;
         height: 310px;
         border: none;
         @media screen and (max-width: 768px) {
-            background: url(../images/star-sky.png), linear-gradient(to top, rgb(51, 64, 156) 0%, rgb(33, 104, 198) 100%);
+            background: url(../img/star-sky.png), linear-gradient(to top, rgb(51, 64, 156) 0%, rgb(33, 104, 198) 100%);
         }
         @media screen and (min-width: 769px) and (max-width: 1199px) {
-            background: url(../images/header-bg.jpg) -680px 0 no-repeat;
+            background: url(../img/header-bg.jpg) -680px 0 no-repeat;
         }
         @media screen and (min-width: 1200px) and (max-width: 1600px) {
             background-position: 72px 40px, -130px 0;
@@ -144,6 +144,11 @@
     .service-icon {
         margin: auto;
         height: 39px;
+        &:hover + .service-name {
+            transform: scale(1.1);
+            color: #3177df;
+            transition: .3s;
+        }
     }
     .order-call {
         float: right;

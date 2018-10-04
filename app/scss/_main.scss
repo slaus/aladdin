@@ -18,7 +18,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  background: url(../images/star-sky.png),
+  background: url(../img/star-sky.png),
   $accent-gradient;
   border: 3px solid $accent-color;
   box-shadow: 2.5px 4.3px 10px rgba(0, 0, 0, 0.24);
@@ -98,7 +98,7 @@
     button {
       width: 50px;
       border: none;
-      background: $font-color-light url("../images/search.png") 6px 14px no-repeat;
+      background: $font-color-light url("../img/search.png") 6px 14px no-repeat;
     }
   }
 }
@@ -330,7 +330,7 @@
 
 .subscribe-email {
   padding: 0 0 10px;
-  background: url(../images/bg-clouds.jpg) center no-repeat;
+  background: url(../img/bg-clouds.jpg) center no-repeat;
   transform: translateY(20px);
   min-height: 230px;
   width: 100%;

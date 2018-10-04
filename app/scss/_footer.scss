@@ -3,10 +3,10 @@
  */
 
 .footer {
-    background: url(../images/star-sky.png), url(../images/footer-bg.png) 0 0 no-repeat;
+    background: url(../img/star-sky.png), url(../img/footer-bg.png) 0 0 no-repeat;
     padding-top: 60px;
     @media screen and (max-width: 992px) {
-        background: url(../images/star-sky.png), $accent-gradient;
+        background: url(../img/star-sky.png), $accent-gradient;
     }
     .footer-phone-num {
         .container {
@@ -16,7 +16,7 @@
                 position: absolute;
                 width: 456px;
                 height: 327px;
-                background: url(../images/footer-img.png);
+                background: url(../img/footer-img.png);
                 right: 200px;
                 bottom: 87px;
                 @media screen and (max-width: 1200px) {

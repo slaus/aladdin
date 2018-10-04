@@ -24,6 +24,13 @@
     color: $font-color-dark;
 }
 
+.product-card {
+    @media screen and (max-width: 767px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
 .prewiev-product-card {
     margin: 20px 0 0 -15px;
 }
